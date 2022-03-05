@@ -3,7 +3,8 @@ import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import Task from './components/Task';
-import TaskDetails from './components/TaskCard';
+import TaskDetail from './components/TaskDetail';
+import TaskEdit from './components/TaskEdit';
 import UserProfile from './components/UserProfile';
 import { AuthProviderWrapper } from './context/auth.context';
 import Home from './pages/Home';
@@ -19,12 +20,12 @@ function App() {
           <Home />
         </IsPrivate>} />
         <Route path="/task" element={<Task />} />
-        <Route path="/user/profile" element={
-            <UserProfile />
-          } />
-        <Route path='/task/:id' element={<TaskDetails/>} />
-        {/* <Route path='/task/:id/edit' element={<TaskEdit/>}/> */}
+        <Route path='/task/:id' element={<TaskDetail/>} />
+        <Route path='/task/:id/edit' element={<TaskEdit/>}/>
 
+        <Route path="/user/profile" element={
+          <UserProfile />
+        } />
 
         <Route
           path="/login"

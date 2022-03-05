@@ -39,11 +39,11 @@ class ApiService {
     return this.api.get(`/task/${id}`)
   }
 
+  editTask = (id, form) => {
+    return this.api.put(`/task/${id}/edit`, form)
+  }
+
   // createTask = (body) => {
-
-  // }
-
-  // editTask = (id, body) => {
 
   // }
 
