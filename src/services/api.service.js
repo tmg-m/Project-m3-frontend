@@ -31,6 +31,23 @@ class ApiService {
     // return axios.post("http://localhost:5005/auth/singup");
   };
 
+  getTasks = () => {
+    return this.api.get('/task');
+  }
+
+  getSingleTask = (taskId) => {
+    const {id} = taskId
+    return this.api.get(`/task/${id}`)
+  }
+
+  // createTask = (body) => {
+
+  // }
+
+  // editTask = (id, body) => {
+
+  // }
+
   verify = () => {
     return this.api.get('/auth/verify');
     // same as

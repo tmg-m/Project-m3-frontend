@@ -2,10 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
+import Task from './components/Task';
+import TaskDetails from './components/TaskCard';
+import UserProfile from './components/UserProfile';
 import { AuthProviderWrapper } from './context/auth.context';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
-import Protected from './pages/Protected';
 import SignupPage from './pages/SignupPage';
 
 function App() {
@@ -13,15 +15,14 @@ function App() {
     <AuthProviderWrapper>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/protected"
-          element={
-            <IsPrivate>
-              <Protected />
-            </IsPrivate>
-          }
-        />
+        <Route path="/" element={<IsPrivate>
+          <Home />
+        </IsPrivate>} />
+        <Route path="/task" element={<Task />} />
+        <Route path="/user/profile" element={
+            <UserProfile />
+          } />
+        <Route path='/task/:id' element={<TaskDetails/>} />
         <Route
           path="/login"
           element={
