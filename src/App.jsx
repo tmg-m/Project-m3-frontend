@@ -23,6 +23,9 @@ function App() {
             <UserProfile />
           } />
         <Route path='/task/:id' element={<TaskDetails/>} />
+        {/* <Route path='/task/:id/edit' element={<TaskEdit/>}/> */}
+
+
         <Route
           path="/login"
           element={

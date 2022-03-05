@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import apiService from "../services/api.service";
 
 function TaskDetail () {
   const [task, setTask] = useState({});
-  const id = useParams();
+  const { id }= useParams();
+  console.log(id)
 
   useEffect(() => {
     apiService.getSingleTask(id).then((response) => setTask(response.data))
@@ -16,6 +17,7 @@ function TaskDetail () {
       <h2>{task.detail}</h2>
       <h2>{task.creator}</h2>
       <h2>{task.assist}</h2>
+      <Link to={`/task/${id}/edit`}>edit</Link>
     </>
   )
 }

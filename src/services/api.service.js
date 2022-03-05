@@ -35,8 +35,7 @@ class ApiService {
     return this.api.get('/task');
   }
 
-  getSingleTask = (taskId) => {
-    const {id} = taskId
+  getSingleTask = (id) => {
     return this.api.get(`/task/${id}`)
   }
 
