@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 import apiService from "../services/api.service";
 
 function UserEdit() {
+  const { /* user, */ logOutUser } = useContext(AuthContext)
   const navigate = useNavigate()
   const {id} = useParams(); 
   const [form, setForm] = useState({
@@ -40,8 +42,13 @@ function UserEdit() {
   console.log(form)
 
   const deleteAccount = async () => {
-    apiService.deleteTask(id)
-    navigate(`/task`)
+   try {
+     await apiService.deleteUser(id);
+     logOutUser();
+     navigate(`/`);
+   } catch (error) {
+     console.log(error);
+   }
   }
 
   return (
