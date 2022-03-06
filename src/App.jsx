@@ -25,7 +25,7 @@ function App() {
         <Route path='/task/:id/edit' element={<TaskEdit/>}/>
         <Route path='/task/create' element={<TaskCreate/>}/>
 
-        <Route path="/user/profile" element={
+        <Route path="/user/:id" element={
           <UserProfile />
         } />
 

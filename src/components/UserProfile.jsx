@@ -1,27 +1,21 @@
-import { useContext } from 'react';
-import { AuthContext } from '../context/auth.context';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import apiService from '../services/api.service';
 // import apiService from '../services/api.service';
-// import { useNavigate } from 'react-router-dom';
 
 function UserProfile() {
-  const { user } = useContext(AuthContext);
+  const { id } = useParams()
+  const [user, setUser] = useState({});
+  const [userTask, setUserTask] = useState({});
 
-/*   const navigate = useNavigate(); */
-  console.log(user);
-
- /*  useEffect(() => {
-    apiService.getTasks().then(() => setstate)
+  useEffect(() => {
+    apiService.getUser(id).then((response) => {setUser(response.data.user), setUserTask(response.data.userTask)})
   }, []);
-
-  handleSubmit(() => {
-    apiService.createTask(body).then(() => {
-      navigate('/tasks');
-    })
-  }, []); */
 
   return (
     <>
-      <h1>User profile</h1>
+    <h1>{user.name}</h1>
+    <h2>{userTask.length}</h2>
     </>
   )
 }

@@ -7,8 +7,15 @@ function Navbar() {
   // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
 
+  // Need Sum Help
+/*   const [userData, setUserData] = useState({}); */
+
+/*   useEffect(() => {
+    setUserData(user)
+  }, []); */
+
   return (
-    <nav>
+    <div>
       {isLoggedIn && (
         <>
           <Link to="/">
@@ -17,7 +24,7 @@ function Navbar() {
           <Link to="/task">
             <button>Task</button>
           </Link>
-          <Link to="user/profile/">
+          <Link to={`/user/6221054a3e18fa4013894139`}>
             <button>Profile</button>
           </Link>
           <button onClick={logOutUser}>Logout</button>
@@ -41,7 +48,7 @@ function Navbar() {
           </>
         )
       }
-    </nav >
+    </div>
   );
 }
 

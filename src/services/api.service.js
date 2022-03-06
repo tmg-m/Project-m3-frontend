@@ -31,6 +31,12 @@ class ApiService {
     // return axios.post("http://localhost:5005/auth/singup");
   };
 
+  verify = () => {
+    return this.api.get('/auth/verify');
+    // same as
+    // return axios.post("http://localhost:5005/auth/verify");
+  };
+
   getTasks = () => {
     return this.api.get('/task');
   }
@@ -51,11 +57,19 @@ class ApiService {
     return this.api.post(`/task/create`, form)
   }
 
-  verify = () => {
-    return this.api.get('/auth/verify');
-    // same as
-    // return axios.post("http://localhost:5005/auth/verify");
-  };
+  getUser = (id) => {
+    return this.api.get(`/user/${id}`)
+  }
+
+  editUser = (id, form) => {
+    return this.api.put(`/user/${id}/edit`, form)
+  }
+
+  deleteUser = (id) => {
+    return this.api.delete(`/user/${id}/delete`)
+  }
+
+  
 }
 
 // Create one instance (object) of the service
