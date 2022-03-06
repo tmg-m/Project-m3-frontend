@@ -6,6 +6,7 @@ import Task from './components/Task';
 import TaskCreate from './components/TaskCreate';
 import TaskDetail from './components/TaskDetail';
 import TaskEdit from './components/TaskEdit';
+import UserEdit from './components/UserEdit';
 import UserProfile from './components/UserProfile';
 import { AuthProviderWrapper } from './context/auth.context';
 import Home from './pages/Home';
@@ -20,14 +21,14 @@ function App() {
         <Route path="/" element={<IsPrivate>
           <Home />
         </IsPrivate>} />
+
         <Route path="/task" element={<Task />} />
         <Route path='/task/:id' element={<TaskDetail/>} />
         <Route path='/task/:id/edit' element={<TaskEdit/>}/>
         <Route path='/task/create' element={<TaskCreate/>}/>
 
-        <Route path="/user/:id" element={
-          <UserProfile />
-        } />
+        <Route path="/user/:id" element={<UserProfile/>}/>
+        <Route path="user/:id/edit" element={<UserEdit/>}/>
 
         <Route
           path="/login"
