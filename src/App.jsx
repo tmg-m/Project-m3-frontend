@@ -3,6 +3,7 @@ import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import Task from './components/Task';
+import TaskCreate from './components/TaskCreate';
 import TaskDetail from './components/TaskDetail';
 import TaskEdit from './components/TaskEdit';
 import UserProfile from './components/UserProfile';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/task" element={<Task />} />
         <Route path='/task/:id' element={<TaskDetail/>} />
         <Route path='/task/:id/edit' element={<TaskEdit/>}/>
+        <Route path='/task/create' element={<TaskCreate/>}/>
 
         <Route path="/user/profile" element={
           <UserProfile />

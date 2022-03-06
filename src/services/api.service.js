@@ -44,13 +44,12 @@ class ApiService {
   }
 
   deleteTask = (id) => {
-    console.log("task deleted")
     return this.api.delete(`/task/${id}/delete`)
   }
 
-  // createTask = (body) => {
-
-  // }
+  createTask = (form) => {
+    return this.api.post(`/task/create`, form)
+  }
 
   verify = () => {
     return this.api.get('/auth/verify');
