@@ -43,6 +43,11 @@ class ApiService {
     return this.api.put(`/task/${id}/edit`, form)
   }
 
+  deleteTask = (id) => {
+    console.log("task deleted")
+    return this.api.delete(`/task/${id}/delete`)
+  }
+
   // createTask = (body) => {
 
   // }

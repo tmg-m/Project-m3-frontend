@@ -35,6 +35,11 @@ function TaskEdit () {
     navigate(`/task/${id}`)
   }
 
+  const deleteTask = async () => {
+    apiService.deleteTask(id)
+    navigate(`/task`)
+  }
+
   return (
     <>
       <form onSubmit={editMyTask}>
@@ -43,6 +48,7 @@ function TaskEdit () {
         <input type="file" name="imgUrl" value={form.imgUrl}onChange={handleForm}/>
         <button type="submit">save</button>
       </form>
+      <button onClick={deleteTask} >Delete Task</button>
     </>
   )
 }
