@@ -1,0 +1,13 @@
+.nav {
+  border: 1px solid red;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+}
+
+.page-title {
+  border: 1px solid blue;
+  padding: 5px;
+  max-width: fit-content;
+}

@@ -4,7 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import apiService from "../services/api.service";
 
 function UserEdit() {
-  const { /* user, */ logOutUser } = useContext(AuthContext)
+  const { logOutUser } = useContext(AuthContext)
   const navigate = useNavigate()
   const {id} = useParams(); 
   const [form, setForm] = useState({
@@ -38,8 +38,6 @@ function UserEdit() {
     apiService.editUser(id, form)
     navigate(`/user/${id}`)
   }
-
-  console.log(form)
 
   const deleteAccount = async () => {
    try {

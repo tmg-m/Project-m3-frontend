@@ -11,6 +11,7 @@ function TaskDetail () {
     apiService.getSingleTask(id).then((response) => setTask(response.data))
   }, []);
 
+
   return (
     <>
       <h1>{task.title}</h1>

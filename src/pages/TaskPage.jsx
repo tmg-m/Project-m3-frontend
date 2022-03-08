@@ -1,14 +1,14 @@
 import Task from "../components/Task";
 import '../css/base.css'
 
-function Home() {
-  
+function TaskPage() {
+
   return (
     <div>
-      <h1 className="page-title">Home</h1>
+      <h1 className="page-title">Task page</h1>
       <Task />
     </div>
   );
 }
 
-export default Home;
+export default TaskPage;

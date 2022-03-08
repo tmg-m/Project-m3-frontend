@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiService from "../services/api.service";
-import TaskCard from "./TaskCard";
+import TaskCard from "../pages/TaskCard";
 
 function Task() {
 
