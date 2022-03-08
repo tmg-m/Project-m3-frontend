@@ -8,6 +8,7 @@ function Navbar() {
   // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
 
+  console.log(user);
   // Need Sum Help
 /*   const [userData, setUserData] = useState({}); */
 
