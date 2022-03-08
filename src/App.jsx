@@ -17,29 +17,38 @@ function App() {
   return (
     <AuthProviderWrapper>
       <Routes>
-        <Route path="/" element={<IsPrivate>
-          <Home />
-        </IsPrivate>}>
-        </Route>
+        <Route
+          path="/"
+          element={
+            <IsPrivate>
+              <Home />
+            </IsPrivate>
+          }
+        ></Route>
         <Route path="/task" element={<TaskPage />} />
-        <Route path='/task/:id' element={<TaskDetail />} />
-        <Route path='/task/:id/edit' element={<TaskEdit />} />
-        <Route path='/task/create' element={<TaskCreate />} />
+        <Route path="/task/:id" element={<TaskDetail />} />
+        <Route path="/task/:id/edit" element={<TaskEdit />} />
+        <Route path="/task/create" element={<TaskCreate />} />
 
-        <Route path="/user/:id" element={<UserProfile />} />
+        <Route path="/user/profile" element={<UserProfile />} />
         <Route path="user/:id/edit" element={<UserEdit />} />
 
-        <Route path="/login"
+        <Route
+          path="/login"
           element={
             <IsAnon>
               <LoginPage />
             </IsAnon>
-          }/>
-        <Route path="/signup" element={
+          }
+        />
+        <Route
+          path="/signup"
+          element={
             <IsAnon>
               <SignupPage />
             </IsAnon>
-          }/>
+          }
+        />
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
       <Navbar />

@@ -6,34 +6,33 @@ import '../css/base.css';
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   console.log(user);
   // Need Sum Help
-/*   const [userData, setUserData] = useState({}); */
+  /*   const [userData, setUserData] = useState({}); */
 
-/*   useEffect(() => {
+  /*   useEffect(() => {
     setUserData(user)
   }, []); */
 
   return (
     <div>
       {isLoggedIn && (
-        <div className='nav'>
+        <div className="nav">
           <Link to="/">
             <button>Home</button>
           </Link>
           <Link to="/task">
             <button>Task</button>
           </Link>
-          <Link to={`/user/6221054a3e18fa4013894139`}>
+          <Link to={`/user/profile`}>
             <button>Profile</button>
           </Link>
           <button onClick={logOutUser}>Logout</button>
           <span>{user && user.name}</span>
         </div>
-        )
-      }
+      )}
     </div>
   );
 }

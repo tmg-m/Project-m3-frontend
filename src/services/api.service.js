@@ -61,6 +61,10 @@ class ApiService {
     return this.api.get(`/user/${id}`)
   }
 
+  getMyTasks = () => {
+    return this.api.get(`/task/mine`);
+  }
+
   editUser = (id, form) => {
     return this.api.put(`/user/${id}/edit`, form)
   }
