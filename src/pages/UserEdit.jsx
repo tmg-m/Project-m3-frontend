@@ -54,14 +54,19 @@ function UserEdit() {
       <form onSubmit={editMyProfile}>
         <label>Profile pic</label>
         <input type="file" name="imgUrl" value={form.imgUrl} onChange={handleForm} />
+        <br></br>
         <label>Email</label>
         <input type="text" name="email" value={form.email} onChange={handleForm} />
+        <br></br>
         <label>Name</label>
         <input type="text" name="name" value={form.name} onChange={handleForm} />
+        <br></br>
         <label>Password</label>
         <input type="password" name="password" value={form.password} onChange={handleForm} />
+        <br></br>
         <label>About</label>
         <input type="text" name="about" value={form.about} onChange={handleForm} />
+        <br></br>
         <button type="submit">save</button>
       </form>
       <button onClick={deleteAccount} >Delete Account</button>
