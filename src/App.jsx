@@ -25,13 +25,13 @@ function App() {
             </IsPrivate>
           }
         ></Route>
-        <Route path="/task" element={<TaskPage />} />
+        <Route path="/task" element={<IsPrivate><TaskPage /></IsPrivate>} />
         <Route path="/task/:id" element={<TaskDetail />} />
         <Route path="/task/:id/edit" element={<TaskEdit />} />
         <Route path="/task/create" element={<TaskCreate />} />
 
-        <Route path="/user/profile" element={<UserProfile />} />
-        <Route path="user/:id/edit" element={<UserEdit />} />
+        <Route path="/user/:id" element={<UserProfile />} />
+        <Route path="/user/:id/edit" element={<UserEdit />} />
 
         <Route
           path="/login"

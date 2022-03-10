@@ -6,9 +6,9 @@ import '../css/base.css';
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser, isLoading } = useContext(AuthContext);
 
-  console.log(user);
+  // console.log(user);
   // Need Sum Help
   /*   const [userData, setUserData] = useState({}); */
 
@@ -16,25 +16,36 @@ function Navbar() {
     setUserData(user)
   }, []); */
 
+  if(!isLoading){
+    return (
+      <div>
+        {isLoggedIn && (
+          <div className="nav">
+            <Link to="/">
+              <button>Home</button>
+            </Link>
+            <Link to="/task">
+              <button>Task</button>
+            </Link>
+            <Link to={`/user/6219fa6964eda2024bbf6c64`}>  {/* hard coded user || i like to add ${user._id} from auth without it crashing after refreshing browser*/} 
+              <button>Profile</button>
+            </Link>
+            <button onClick={logOutUser}>Logout</button>
+            <span>{user && user.name}</span>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div>
-      {isLoggedIn && (
-        <div className="nav">
-          <Link to="/">
-            <button>Home</button>
-          </Link>
-          <Link to="/task">
-            <button>Task</button>
-          </Link>
-          <Link to={`/user/profile`}>
-            <button>Profile</button>
-          </Link>
-          <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
-        </div>
-      )}
+      <h1>loading ..... </h1>
     </div>
-  );
-}
+  )
+
+  }
+
+  
 
 export default Navbar;

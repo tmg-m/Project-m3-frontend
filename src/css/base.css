@@ -1,9 +1,12 @@
 .nav {
-  border: 1px solid red;
+  position: fixed;
+  bottom: 0;
+  border: 2px solid rgb(171, 3, 3);
   padding: 10px;
   display: flex;
   justify-content: space-around;
-  max-width: 500px;
+  gap: 20px;
+  background-color: rgba(106, 106, 106, 0.838);
 }
 
 .page-title {
