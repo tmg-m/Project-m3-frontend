@@ -31,6 +31,8 @@ function LoginPage() {
 
   return (
     <div className="Page">
+      <h1>WORK FLOO</h1>
+      <br></br>
       <h1>Login</h1>
 
       <form className="auth-form" onSubmit={handleLoginSubmit}>
