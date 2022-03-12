@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
-
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import '../css/auth.css'
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -30,21 +30,22 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="Page">
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
+      <form className="auth-form" onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
         <input type="password" name="password" value={password} onChange={handlePassword} />
 
-        <button type="submit">Login</button>
+        <button className="auth-btn" type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Dont have an account yet?</p>
+
       <Link to={'/signup'}> Sign Up</Link>
     </div>
   );

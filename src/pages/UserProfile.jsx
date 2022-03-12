@@ -14,7 +14,7 @@ function UserProfile() {
 
   const [createTask, setCreateTask] = useState(false);
 
-  let showUp = { "color": "red"}
+  let showUp = { "color": "black"}
   const handleCreate = () => {
     setCreateTask((createTask) => !createTask);
   }
@@ -29,9 +29,13 @@ function UserProfile() {
   return (
     <>
       <h1 className="page-title">User profile</h1>
-      <h1>{userInfo.name}</h1>
-      <h2>{userTask.length}</h2>
+      <h1>Name: {userInfo.name}</h1>
+      <h2>Tasks Created : {userTask.length}</h2>
+      <br></br>
+      <br></br>
+      <br></br>
       <Link to={`/user/${id}/edit`}>Edit-profile</Link>
+      <br></br>
       <br></br>
       <button onClick={handleCreate}>Create Task</button>
       <div style={showUp} >{createTask ? <TaskCreate /> : null }</div>

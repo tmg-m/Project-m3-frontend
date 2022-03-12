@@ -14,7 +14,7 @@ function Home() {
   return (
     <div>
       <h1 className="page-title">Home</h1>
-      <button onClick={handleCreate}>Create Task</button>
+      <button className="create-btn center" onClick={handleCreate}>Create Task</button>
       <div>{createTask ? <TaskCreate/> : <></>}</div>
       <Task />
     </div>

@@ -27,7 +27,7 @@ function TaskCreate () {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="create-form" onSubmit={handleSubmit}>
         <label>Title</label>
         <input type="text" name="title" onChange={handleForm}/>
         <label>Discription</label>
@@ -36,7 +36,7 @@ function TaskCreate () {
         <input type="checkbox" name="hot" onChange={handleForm}/>
         <label>Image</label>
         <input type="file" name="imgUrl" onChange={handleForm}/>
-        <button type="submit">Create</button>
+        <button className="create-btn" type="submit">Create</button>
       </form>
     </>
   )

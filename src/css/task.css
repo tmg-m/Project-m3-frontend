@@ -1,9 +1,23 @@
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
-  border: 1px solid green;
+  border: 2px solid rgb(0, 46, 0);
   height: 200px;
   margin: 10px;
 }
 
-.title {
-  
+.create-btn {
+  border: 1px solid black;
+  padding: 5px 20px;
+  background-color: black;
+  color: white;
+}
+
+.center {
+  margin-left: 10px;
 }

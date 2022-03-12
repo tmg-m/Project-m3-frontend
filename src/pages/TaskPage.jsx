@@ -5,7 +5,7 @@ function TaskPage() {
 
   return (
     <div>
-      <h1 className="page-title">Task page</h1>
+      <h1 className="page-title">My tasks</h1>
       <Task />
     </div>
   );

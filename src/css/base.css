@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   border: 2px solid rgb(171, 3, 3);
-  padding: 10px;
+  padding: 10px 45px;
   display: flex;
   justify-content: space-around;
   gap: 20px;
@@ -10,7 +10,14 @@
 }
 
 .page-title {
-  border: 1px solid blue;
   padding: 5px;
-  max-width: fit-content;
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.general-Page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

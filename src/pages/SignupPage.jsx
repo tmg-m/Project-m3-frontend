@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import '../css/auth.css'
 
 function SignupPage() {
   const [email, setEmail] = useState('');
@@ -34,10 +35,10 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
+    <div className="Page">
       <h1>Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
+      <form className='auth-form' onSubmit={handleSignupSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -47,12 +48,13 @@ function SignupPage() {
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
-        <button type="submit">Sign Up</button>
+        <button className='auth-btn ' type="submit">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
+
       <Link to={'/login'}> Login</Link>
     </div>
   );
