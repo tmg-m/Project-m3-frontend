@@ -24,10 +24,10 @@ function TaskDetail () {
 
   return (
     <>
-      <h1>{task.title}</h1>
-      <h2>{task.detail}</h2>
-      <h2>{creator.name}</h2>
-      <h2>{task.assist}</h2>
+      <h1>Title: {task.title}</h1>
+      <h2>Detail: {task.discription}</h2>
+      <h2>Creator: {creator.name}</h2>
+      <h2>Help desk: {task.assist} 0</h2>
       <Link to={`/task/${id}/edit`}>edit</Link>   {/* line 32 Same problem from auth context, where refresh crashes everything */}
       {/* {editVisible ? <Link to={`/task/${id}/edit`}>edit</Link> : null } */}  
     </>

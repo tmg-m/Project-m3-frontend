@@ -22,7 +22,7 @@ function TaskCreate () {
 
   const handleSubmit = () => {
     apiService.createTask(form)
-    navigate(`/task`)
+    navigate(`/`)
   }
 
   return (

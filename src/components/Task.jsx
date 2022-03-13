@@ -16,7 +16,7 @@ function Task() {
         return (
             <TaskCard key={i} id={task._id} title={task.title} discription={task.discription} creator={task.creator}/>
         )
-      })}
+      }).reverse()}
     </>
   )
 }
