@@ -20,10 +20,21 @@ function TaskCreate () {
     })
   }
 
+  const handleFormCheck = (e) => {
+    setForm((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.checked,
+      }
+    })
+  }
+
   const handleSubmit = () => {
     apiService.createTask(form)
     navigate(`/`)
   }
+
+  console.log(form);
 
   return (
     <>
@@ -33,7 +44,7 @@ function TaskCreate () {
         <label>Discription</label>
         <input type="text" name="discription" onChange={handleForm}/>
         <label>Hot</label>
-        <input type="checkbox" name="hot" onChange={handleForm}/>
+        <input type="checkbox" name="hot" onChange={handleFormCheck}/>
         <label>Image</label>
         <input type="file" name="imgUrl" onChange={handleForm}/>
         <button className="create-btn" type="submit">Create</button>
