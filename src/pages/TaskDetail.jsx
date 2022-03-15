@@ -9,24 +9,62 @@ function TaskDetail() {
   const [task, setTask] = useState({});
   const [creator, setCreator] = useState({});
   const [editVisible, setEditVisible] = useState(false);
+  const [joinToggle, setJoinToggle] = useState(false);
+  const [loggedUserId, setLoggedUserId] = useState(null);
 
-  useEffect(() => {
-    apiService.getSingleTask(id).then((response) => setTask(response.data))
+  // gets selected task with userId from payload (logged in user)
+
+  const data = async () => {
+    try {
+      const task = await apiService.getSingleTask(id);
+      setTask(task.data.task);
+      setLoggedUserId(task.data.userId)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  useEffect( () => {      //help with toggle join
+    data();
+    // if (task.assist.includes(loggedUserId)) {
+    //   setJoinToggle(true)
+    // }
   }, []);
 
+  // gets creator's data
   useEffect(() => {
     apiService.getUser(task.creator).then((response) => setCreator(response.data.user))
   }, [task]);
 
+  // Visible edit button, checks weather logged user and creator is the same.
   useEffect(() => {
     if (!isLoading && user) {
-      if(user._id === task.creator){
-        setEditVisible(true)
+      if (user._id === task.creator) {
+        setEditVisible(true);
       }
     }
   }, [user, isLoading, task]);
 
-  console.log(task);
+
+  const handleJoin = async () => {
+    try {
+      await apiService.assistJoin(id);
+      setJoinToggle(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handleUnJoin = async () => {
+    try {
+      await apiService.assistUnJoin(id);
+      setJoinToggle(false);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  console.log(loggedUserId);
 
   return (
     <>
@@ -35,11 +73,14 @@ function TaskDetail() {
       <Link to={`/user/${creator._id}`}>
         <h2>Creator: {creator.name}</h2>
       </Link>
-      <h2>Help desk: {task.assist} 0</h2>
+      <h2>Help desk: {task.assist}</h2>
       <h2>hot: {task.hot ? <p>true</p> : <p>false</p>}</h2>
-      <h1>imgUrl: {task.imgUrl}</h1>
-      
+      <img src={task.imgUrl}></img>
+
       {editVisible ? <Link to={`/task/${id}/edit`}>edit</Link> : null}
+      {joinToggle ? <button onClick={handleUnJoin}>un join</button> : <button onClick={handleJoin}>join</button>}
+
+
     </>
   )
 }

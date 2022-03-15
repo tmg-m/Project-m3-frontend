@@ -14,7 +14,7 @@ function Task() {
     <>
       {allTask.map((task, i) => {
         return (
-            <TaskCard key={i} id={task._id} title={task.title} discription={task.discription} creator={task.creator} hot={task.hot} imgUrl={task.imgUrl}/>
+            <TaskCard key={i} id={task._id} title={task.title} discription={task.discription} creator={task.creator} hot={task.hot} imgUrl={task.imgUrl} assist={task.assist} />
         )
       }).reverse()}
     </>

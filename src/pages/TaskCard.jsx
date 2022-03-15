@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../css/task.css'
 import apiService from "../services/api.service";
-//import TaskDetail from "./TaskDetail";
 
-function TaskCard({ id, title, imgUrl, creator, hot, /* assist  */ }) { // props from Task Component in Component folder
+function TaskCard({ id, title, imgUrl, creator, hot, assist  }) { // props from Task Component in Component folder
 
   const [creatorData, setCreatorData] = useState({});
 
@@ -21,6 +20,7 @@ function TaskCard({ id, title, imgUrl, creator, hot, /* assist  */ }) { // props
           <img src={imgUrl}></img>
           <h1>Creator: {creatorData.name}</h1>
           <h1>Hot: {hot ? <p>true</p> : <p>false</p>}</h1>
+          <h1>assist : {assist.length}</h1>
         </div>
       </Link>
     </>

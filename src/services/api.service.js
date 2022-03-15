@@ -77,6 +77,16 @@ class ApiService {
   imgUpload = file => {
     return this.api.post(`/imageUpload`, file)
   }
+
+  assistJoin = (id) => {
+    console.log(id)
+    return this.api.post(`/task/${id}/join`);
+  }
+
+  assistUnJoin = (id) => {
+    console.log(id)
+    return this.api.put(`/task/${id}/unJoin`);
+  }
   
 }
 
