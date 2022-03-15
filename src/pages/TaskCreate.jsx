@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apiService from "../services/api.service";
 
-function TaskCreate () {
+function TaskCreate() {
   const navigate = useNavigate()
   const [form, setForm] = useState({
     title: '',
@@ -32,17 +32,20 @@ function TaskCreate () {
   const handleImgaeUpload = e => {
     const uploadData = new FormData();
     uploadData.append('imgUrl', e.target.files[0]);
-    apiService
-      .imgUpload(uploadData)
-      .then(response => {
+    const cloud = async () => {
+      try {
+        const upload = await apiService.imgUpload(uploadData);
         setForm((prev) => {
           return {
             ...prev,
-            imgUrl: response.data.cloudUrl
+            imgUrl: upload.data.cloudUrl
           }
-        });
-      })
-      .catch(error => console.log(error));
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    cloud()
   };
 
   const handleSubmit = () => {
@@ -59,13 +62,13 @@ function TaskCreate () {
     <>
       <form className="create-form" onSubmit={handleSubmit} >
         <label>Title</label>
-        <input type="text" name="title" onChange={handleForm}/>
+        <input type="text" name="title" onChange={handleForm} />
         <label>Discription</label>
-        <input type="text" name="discription" onChange={handleForm}/>
+        <input type="text" name="discription" onChange={handleForm} />
         <label>Hot</label>
-        <input type="checkbox" name="hot" onChange={handleFormCheck}/>
+        <input type="checkbox" name="hot" onChange={handleFormCheck} />
         <label>Image</label>
-        <input type="file" name="imgUrl" onChange={handleImgaeUpload}/>
+        <input type="file" name="imgUrl" onChange={handleImgaeUpload} />
         <button className="create-btn" type="submit">Create</button>
       </form>
     </>

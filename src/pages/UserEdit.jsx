@@ -34,6 +34,25 @@ function UserEdit() {
     })
   }
 
+  const handleImgaeUpload = e => {
+    const uploadData = new FormData();
+    uploadData.append('imgUrl', e.target.files[0]);
+    const cloud = async () => {
+      try {
+        const upload = await apiService.imgUpload(uploadData);
+        setForm((prev) => {
+          return {
+            ...prev,
+            imgUrl: upload.data.cloudUrl
+          }
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    cloud()
+  };
+
   const editMyProfile = async () => {
     apiService.editUser(id, form)
     navigate(`/user/${id}`)
@@ -49,11 +68,13 @@ function UserEdit() {
    }
   }
 
+  console.log(form);
+
   return (
     <>
       <form onSubmit={editMyProfile}>
         <label>Profile pic</label>
-        <input type="file" name="imgUrl" value={form.imgUrl} onChange={handleForm} />
+        <input type="file" name="imgUrl" onChange={handleImgaeUpload} />
         <br></br>
         <label>Email</label>
         <input type="text" name="email" value={form.email} onChange={handleForm} />

@@ -13,8 +13,6 @@ function Navbar() {
       setUserData(user)
     }
   }, [user, isLoading]);
-  console.log({ isLoading, user });
-
 
   /* if not userData show loading screen */
   if (!userData) {
