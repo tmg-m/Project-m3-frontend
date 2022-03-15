@@ -54,6 +54,7 @@ class ApiService {
   }
 
   createTask = (form) => {
+    console.log(form);
     return this.api.post(`/task/create`, form)
   }
 
@@ -73,6 +74,9 @@ class ApiService {
     return this.api.delete(`/user/${id}/delete`)
   }
 
+  imgUpload = file => {
+    return this.api.post(`/imageUpload`, file)
+  }
   
 }
 

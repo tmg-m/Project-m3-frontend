@@ -4,12 +4,8 @@ import { AuthContext } from '../context/auth.context';
 import '../css/base.css';
 
 function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider `value` prop
-  const { isLoggedIn, user, logOutUser, isLoading } = useContext(AuthContext);
 
-  // console.log(user);
-  // Need Sum Help
+  const { isLoggedIn, user, logOutUser, isLoading } = useContext(AuthContext);
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -37,7 +33,7 @@ function Navbar() {
           <Link to="/task">
             <button>Task</button>
           </Link>
-          <Link to={`/user/${userData._id}`}>  {/* hard coded user || i like to add ${user._id} from auth without it crashing after refreshing browser*/}
+          <Link to={`/user/${userData._id}`}> 
             <button>Profile</button>
           </Link>
           <button onClick={logOutUser}>Logout</button>

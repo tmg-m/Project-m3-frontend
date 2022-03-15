@@ -29,16 +29,35 @@ function TaskCreate () {
     })
   }
 
+  const handleImgaeUpload = e => {
+    const uploadData = new FormData();
+    uploadData.append('imgUrl', e.target.files[0]);
+    apiService
+      .imgUpload(uploadData)
+      .then(response => {
+        setForm((prev) => {
+          return {
+            ...prev,
+            imgUrl: response.data.cloudUrl
+          }
+        });
+      })
+      .catch(error => console.log(error));
+  };
+
   const handleSubmit = () => {
+    console.log(form);
+    console.log("i am here");
     apiService.createTask(form)
-    navigate(`/`)
+    console.log("created");
+    navigate(`/task`)
   }
 
   console.log(form);
 
   return (
     <>
-      <form className="create-form" onSubmit={handleSubmit}>
+      <form className="create-form" onSubmit={handleSubmit} >
         <label>Title</label>
         <input type="text" name="title" onChange={handleForm}/>
         <label>Discription</label>
@@ -46,7 +65,7 @@ function TaskCreate () {
         <label>Hot</label>
         <input type="checkbox" name="hot" onChange={handleFormCheck}/>
         <label>Image</label>
-        <input type="file" name="imgUrl" onChange={handleForm}/>
+        <input type="file" name="imgUrl" onChange={handleImgaeUpload}/>
         <button className="create-btn" type="submit">Create</button>
       </form>
     </>
