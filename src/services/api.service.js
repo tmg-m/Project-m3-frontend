@@ -58,6 +58,10 @@ class ApiService {
     return this.api.post(`/task/create`, form)
   }
 
+  getAllUser = () => {
+    return this.api.get(`/user`)
+  }
+  
   getUser = (id) => {
     return this.api.get(`/user/${id}`)
   }

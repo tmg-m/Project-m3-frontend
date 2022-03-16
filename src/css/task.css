@@ -7,8 +7,14 @@
 
 .card {
   border: 2px solid rgb(0, 46, 0);
-  height: 200px;
+  height: 300px;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card > img {
+  width: 250px;
 }
 
 .create-btn {

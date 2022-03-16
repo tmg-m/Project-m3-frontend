@@ -11,44 +11,22 @@ import { AuthProviderWrapper } from './context/auth.context';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import TaskPage from './pages/TaskPage';
+import AllUser from './pages/AllUser';
 
 function App() {
   return (
     <AuthProviderWrapper>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <IsPrivate>
-              <Home />
-            </IsPrivate>
-          }
-        ></Route>
-        <Route path="/task" element={<IsPrivate><TaskPage /></IsPrivate>} />
-        <Route path="/task/:id" element={<TaskDetail />} />
-        <Route path="/task/:id/edit" element={<TaskEdit />} />
-        <Route path="/task/create" element={<TaskCreate />} />
+        <Route path="/" element={<IsPrivate><Home /></IsPrivate>}/>
+        <Route path="/task/:id" element={<IsPrivate><TaskDetail /></IsPrivate>} />
+        <Route path="/task/:id/edit" element={<IsPrivate><TaskEdit /></IsPrivate>} />
+        <Route path="/task/create" element={<IsPrivate><TaskCreate /></IsPrivate>} />
+        <Route path="/user" element={<IsPrivate><AllUser /></IsPrivate>} />
+        <Route path="/user/:id" element={<IsPrivate><UserProfile /></IsPrivate>} />
+        <Route path="/user/:id/edit" element={<IsPrivate><UserEdit /></IsPrivate>} />
 
-        <Route path="/user/:id" element={<UserProfile />} />
-        <Route path="/user/:id/edit" element={<UserEdit />} />
-
-        <Route
-          path="/login"
-          element={
-            <IsAnon>
-              <LoginPage />
-            </IsAnon>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <IsAnon>
-              <SignupPage />
-            </IsAnon>
-          }
-        />
+        <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>}/>
+        <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>}/>
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
       <Navbar />

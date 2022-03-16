@@ -13,23 +13,26 @@ function TaskDetail() {
   const [loggedUserId, setLoggedUserId] = useState(null);
 
   // gets selected task with userId from payload (logged in user)
-
-  const data = async () => {
-    try {
-      const task = await apiService.getSingleTask(id);
-      setTask(task.data.task);
-      setLoggedUserId(task.data.userId)
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  
-  useEffect( () => {      //help with toggle join
+  useEffect( () => {  
+    const data = async () => {
+      try {
+        const task = await apiService.getSingleTask(id);
+        setTask(task.data.task);
+        setLoggedUserId(task.data.userId)
+      } catch (error) {
+        console.log(error);
+      }
+    } 
     data();
-    // if (task.assist.includes(loggedUserId)) {
-    //   setJoinToggle(true)
-    // }
   }, []);
+
+  useEffect(() => {
+    if(loggedUserId){
+      if (task.assist.includes(loggedUserId)) {
+        setJoinToggle(true)
+      }
+    }
+  }, [loggedUserId]);
 
   // gets creator's data
   useEffect(() => {
@@ -77,8 +80,8 @@ function TaskDetail() {
       <h2>hot: {task.hot ? <p>true</p> : <p>false</p>}</h2>
       <img src={task.imgUrl}></img>
 
-      {editVisible ? <Link to={`/task/${id}/edit`}>edit</Link> : null}
-      {joinToggle ? <button onClick={handleUnJoin}>un join</button> : <button onClick={handleJoin}>join</button>}
+      {editVisible ? <Link to={`/task/${id}/edit`}>edit</Link> : <div>{joinToggle ? <button onClick={handleUnJoin}>un join</button> : <button onClick={handleJoin}>join</button>}</div>}
+      
 
 
     </>

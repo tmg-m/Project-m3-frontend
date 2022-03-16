@@ -49,11 +49,9 @@ function TaskCreate() {
   };
 
   const handleSubmit = () => {
-    console.log(form);
-    console.log("i am here");
     apiService.createTask(form)
     console.log("created");
-    navigate(`/task`)
+    navigate(`/`)
   }
 
   console.log(form);

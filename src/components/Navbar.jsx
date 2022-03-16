@@ -28,8 +28,8 @@ function Navbar() {
           <Link to="/">
             <button>Home</button>
           </Link>
-          <Link to="/task">
-            <button>Task</button>
+          <Link to="/user">
+            <button>All users</button>
           </Link>
           <Link to={`/user/${userData._id}`}> 
             <button>Profile</button>
