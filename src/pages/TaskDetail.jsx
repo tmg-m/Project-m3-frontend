@@ -48,26 +48,43 @@ function TaskDetail() {
     }
   }, [user, isLoading, task]);
 
-
+  // Join
   const handleJoin = async () => {
     try {
       await apiService.assistJoin(id);
+      const allChat= await apiService.getAllChat();
+      let chatRoomId;
+      allChat.data.map((room) => {
+        if (room.relatedTask === id){
+          chatRoomId = room._id
+        }
+      })
+      await apiService.joinChatRoom(chatRoomId);
       setJoinToggle(true);
     } catch (error) {
       console.log(error);
     }
   }
 
+  // Un Join
   const handleUnJoin = async () => {
     try {
       await apiService.assistUnJoin(id);
+      const allChat = await apiService.getAllChat();
+      let chatRoomId;
+      allChat.data.map((room) => {
+        if (room.relatedTask === id) {
+          chatRoomId = room._id
+        }
+      })
+      await apiService.unJoinChatRoom(chatRoomId);
       setJoinToggle(false);
 
     } catch (error) {
       console.log(error);
     }
   }
-  console.log(loggedUserId);
+
 
   return (
     <>
@@ -81,6 +98,9 @@ function TaskDetail() {
       <img src={task.imgUrl}></img>
 
       {editVisible ? <Link to={`/task/${id}/edit`}>edit</Link> : <div>{joinToggle ? <button onClick={handleUnJoin}>un join</button> : <button onClick={handleJoin}>join</button>}</div>}
+
+      <br></br>
+      <br></br>
       
 
 
