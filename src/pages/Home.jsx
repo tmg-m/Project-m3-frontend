@@ -24,10 +24,12 @@ function Home() {
     }
   }, [allTaskDb]);
 
+  //CreateTask toggle
   const handleCreate = () => {
     setCreateTask((createTask) => !createTask);
   }
 
+  // Search
   const taskSearch = (input) => {
     if (input === '') {
       setAllTask(allTask);
@@ -39,8 +41,6 @@ function Home() {
       );
     }
   };
-
-  console.log(allTaskDb);
   
   return (
     <div>
