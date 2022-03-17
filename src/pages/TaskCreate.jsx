@@ -48,13 +48,14 @@ function TaskCreate() {
     cloud()
   };
 
-  const handleSubmit = () => {
-    apiService.createTask(form)
-    console.log("created");
-    navigate(`/`)
+  const handleSubmit = async () => {
+    try {
+      await apiService.createTask(form);
+      navigate(`/`);
+    } catch (error) {
+      console.log(error);
+    }
   }
-
-  console.log(form);
 
   return (
     <>
