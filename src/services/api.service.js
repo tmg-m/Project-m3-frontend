@@ -37,6 +37,8 @@ class ApiService {
     // return axios.post("http://localhost:5005/auth/verify");
   };
 
+  // Task
+
   getTasks = () => {
     return this.api.get('/task');
   }
@@ -54,9 +56,18 @@ class ApiService {
   }
 
   createTask = (form) => {
-    console.log(form);
     return this.api.post(`/task/create`, form)
   }
+
+  assistJoin = (id) => {
+    return this.api.post(`/task/${id}/join`);
+  }
+
+  assistUnJoin = (id) => {
+    return this.api.put(`/task/${id}/unJoin`);
+  }
+
+  // User
 
   getAllUser = () => {
     return this.api.get(`/user`)
@@ -78,18 +89,41 @@ class ApiService {
     return this.api.delete(`/user/${id}/delete`)
   }
 
+  // Upload files
+
   imgUpload = file => {
     return this.api.post(`/imageUpload`, file)
   }
 
-  assistJoin = (id) => {
-    console.log(id)
-    return this.api.post(`/task/${id}/join`);
+  // Chat 
+
+  getAllChat = () => {
+    return this.api.get(`/chat`);
   }
 
-  assistUnJoin = (id) => {
-    console.log(id)
-    return this.api.put(`/task/${id}/unJoin`);
+  getMyChatRoom = () => {
+    return this.api.get(`/chat/mine`);
+  }
+
+  createChatRoom = (form) => {
+    return this.api.post(`/chat/create`, form)
+  }
+
+  getChatRoom = (id) => {
+    return this.api.get(`/chat/${id}`)
+  }
+
+  joinChatRoom = (id) => {
+    return this.api.post(`/chat/${id}/join`)
+  }
+
+  unJoinChatRoom = (id) => {
+    return this.api.put(`/chat/${id}/unJoin`)
+  }
+
+  // Message
+  createMessage = () => {
+    return this.api.post(`/message`)
   }
   
 }

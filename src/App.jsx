@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import AllUser from './pages/AllUser';
+import Chat from './pages/Chat';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         <Route path="/user" element={<IsPrivate><AllUser /></IsPrivate>} />
         <Route path="/user/:id" element={<IsPrivate><UserProfile /></IsPrivate>} />
         <Route path="/user/:id/edit" element={<IsPrivate><UserEdit /></IsPrivate>} />
+
+        <Route path="/chat/:id" element={<IsPrivate><Chat /></IsPrivate>} />
+        <Route path="/chat/mine" element={<IsPrivate><Chat /></IsPrivate>} />
 
         <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>}/>
         <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>}/>
