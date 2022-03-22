@@ -1,33 +1,40 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/base.css'
 import apiService from '../services/api.service';
+import '../css/users.css'
 
-function TaskPage() {
+
+function AllUserPage() {
 
   const [allUser, setAllUser] = useState([]);
 
   useEffect(() => {
     apiService.getAllUser().then((response) => { setAllUser(response.data) })
   }, []);
-  console.log(allUser);
+
   return (
     <>
-      {allUser.map((user) => {
-        return(
-          <>
-          <Link to={`/user/${user._id}`}>
-              <div style={{border: "1px solid red", margin: "10px"}}>
-                <h1>Name: {user.name}</h1>
-                <img src={user.imgUrl}></img>
-              </div>
-          </Link>
-          </>
-        )
-      })}
-      
+      <div className='allUser'>
+        <div className='allUser-div-controller'>
+          <h1>Discover Users</h1>
+          {allUser.map((user) => {
+            return (
+              <>
+                <div className='user-controller'>
+                  <Link to={`/user/${user._id}`}>
+                    <div className='user-card' >
+                      <img className='round' src={user.imgUrl}></img>
+                      <h1>{user.name}</h1>
+                    </div>
+                  </Link>
+                </div>
+              </>
+            )
+          })}
+        </div>
+      </div>
     </>
   );
 }
 
-export default TaskPage;
+export default AllUserPage;

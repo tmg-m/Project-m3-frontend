@@ -47,6 +47,10 @@ class ApiService {
     return this.api.get(`/task/${id}`)
   }
 
+  getMyTasks = () => {
+    return this.api.get(`/task/mine`);
+  }
+
   editTask = (id, form) => {
     return this.api.put(`/task/${id}/edit`, form)
   }
@@ -77,10 +81,6 @@ class ApiService {
     return this.api.get(`/user/${id}`)
   }
 
-  getMyTasks = () => {
-    return this.api.get(`/task/mine`);
-  }
-
   editUser = (id, form) => {
     return this.api.put(`/user/${id}/edit`, form)
   }
@@ -101,8 +101,8 @@ class ApiService {
     return this.api.get(`/chat`);
   }
 
-  getMyChatRoom = () => {
-    return this.api.get(`/chat/mine`);
+  getChatRoomMessages = (id) => {
+    return this.api.get(`/chat/${id}/messages`);
   }
 
   createChatRoom = (form) => {
@@ -121,9 +121,13 @@ class ApiService {
     return this.api.put(`/chat/${id}/unJoin`)
   }
 
+  CreateChatThisUser = (id, form) => {
+    return this.api.post(`/chat/${id}/usersChat`, form)
+  }
+
   // Message
-  createMessage = () => {
-    return this.api.post(`/message`)
+  createMessage = (message) => {
+    return this.api.post(`/message/create`, message)
   }
   
 }

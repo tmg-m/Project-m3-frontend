@@ -1,31 +1,316 @@
+@media only screen and (max-width: 600px) {
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+  input:focus {
+    outline: none !important;
+  }
+  body {
+    background-color: rgb(233, 233, 233);
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-.create-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  /*  Create Task  page */
 
-.card {
-  border: 2px solid rgb(0, 46, 0);
-  height: 300px;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-}
+  .create-container {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(53, 53, 53, 0.673);
+    backdrop-filter: blur(15px);
+    z-index: 3;
+  }
 
-.card > img {
-  display: block;
-  max-width: fit-content;
-  height: 180px;
-}
+  .create-form {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 
-.create-btn {
-  border: 1px solid black;
-  padding: 5px 20px;
-  background-color: black;
-  color: white;
-}
+  .input-manager {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    font-size: 1.2rem;
+  }
 
-.center {
-  margin-left: 10px;
+  .input-manager > input {
+    outline: none;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .input-manager > textarea {
+    margin-top: 10px;
+    border-radius: 7px;
+    padding-left: 20px;
+    height: 130px;
+    width: 300px;
+    color: black;
+    border: 2px solid white;
+    border-right: none;
+    border-left: none;
+    color: white;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .high-priority {
+    gap: 10px;
+    font-size: 1.2rem;
+  }
+
+  .high-priority > input {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    gap: 10px;
+  }
+
+  .high-priority > input:checked {
+    background-color: red;
+  }
+
+  .upload {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 225px;
+    gap: 15px;
+    font-size: 1rem;
+  }
+
+  .upload  input {
+    width: 100px;
+  }
+
+  .create-btn-form {
+    margin-top: 10px;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 60px;
+    border: 2px solid white;
+    border-radius: 25px;
+  }
+
+  /* Task Card */
+
+  .card {
+    position: relative;
+    margin: 0 0 20px;
+    border: 1px solid rgb(0, 46, 0);
+    border-radius: 0px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card > img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: 0px;
+    background-image: url("./icons/task.png");
+  }
+
+  .task-title {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    z-index: 2;
+    color: white;
+    gap: 10px;
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 00px;
+    background-color: rgba(58, 58, 58, 0.673);
+    backdrop-filter: blur(5px);
+  }
+
+  .task-title > img {
+    width: 30px;
+  }
+
+  .community-contain {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    z-index: 2;
+    color: white;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  .community-contain > img {
+    width: 35px;
+  }
+
+  .community-contain > p {
+    padding-top: 5px;
+  }
+
+  .creator {
+    position: absolute;
+    margin: 10px;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 50%;
+  }
+
+  .priority {
+    position: absolute;
+    width: 35px;
+    z-index: 2;
+    right: 15px;
+    top: 15px;
+  }
+
+  /* Task Details */
+
+  .taskDetail-container {
+    margin: 20px 20px 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-controller {
+    margin-top: 5vh;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .title-discription {
+    padding-top: 25px;
+    font-size: 1.2rem;
+  }
+
+  .detail-controller > img {
+    display:block;
+    border-radius: 10px;
+    max-height: 350px;
+  }
+
+  .toggleJoinxEdit {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .toggleBtn {
+    padding: 15px 100px;
+    border-radius: 25px;
+    color: white;
+    font-size: 1.1rem;
+    width: 100%;
+    border: 2px solid rgba(254, 84, 84, 0);
+  }
+
+  .detail-priority{
+    width: 40px;
+    right: 40px;
+    top: 150px;
+  }
+
+
+  /* Task XS */
+
+  .task-xs {
+    border: 2.5px solid rgb(0, 0, 0);
+    height: 100px;
+    position: relative;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+     color: black;
+     font-size: 1.1rem;
+     font-weight: bolder;
+  }
+
+  .taskTitle {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .taskTitle > h1 {
+    padding-top: 10px;
+  }
+
+  .taskTitle > img {
+    width: 40px;
+    filter: invert(85%);
+  }
+
+  .assists {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .assists > h1 {
+    padding-top: 7px;
+  } 
+
+  .assists > img {
+     width: 40px;
+     filter: invert(80%);
+  }
+
+  .task-xs > img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: blur(10px) brightness(130%);
+    background-image: url("./icons/task.png");
+  }
+   /* ongoing */
+  .myTask-container {
+    margin: 100px 20px 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
 }

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import '../css/auth.css'
+import backBg from '../css/icons/triangle-bg.jpeg'
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -31,24 +32,28 @@ function LoginPage() {
 
   return (
     <div className="Page">
-      <h1>WORK FLOO</h1>
-      <br></br>
-      <h1>Login</h1>
+      <img className='bgImg' src={backBg}></img>
+      <div className='page-contents'>
+        <h1>WORK FLOO</h1>
+        <form className="auth-form" onSubmit={handleLoginSubmit}>
+          <div className='auth-input-manager'>
+            <label>Email</label>
+            <input type="email" name="email" value={email} onChange={handleEmail} />
+          </div>
 
-      <form className="auth-form" onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+          <div className='auth-input-manager' >
+            <label>Password</label>
+            <input type="password" name="password" value={password} onChange={handlePassword} />
+          </div>
 
-        <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
-
-        <button className="auth-btn" type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Dont have an account yet?</p>
-
-      <Link to={'/signup'}> Sign Up</Link>
+          <button className="auth-btn" type="submit">Login</button>
+        </form>
+        <div className='flex-column flex-center'>
+          <p>Dont have an account yet?</p>
+          <Link className='signUp' to={'/signup'}> Sign Up</Link>
+       </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,70 @@
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: rgb(233, 233, 233);
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Community page */
+
+  .community-page {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    margin: 20px 0;
+  }
+
+  .community-controler {
+    margin: 80px 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .community-controler > h1 {
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+
+  .room-title {
+    width: 100%;
+    margin-bottom: 20px ;
+    border-bottom: 3px solid rgb(65, 65, 65);
+    font-size: 1.2rem;
+  }
+
+  .room-title h1 {
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .room-controller {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .room-controller > img {
+    width: 30px;
+    filter:contrast(50%);
+  }
+
+  /* Inbox controller */
+
+  .chat-controller {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chat-controller > img {
+    width: 30px;
+    filter: invert(70%);
+  }
+
+  
+
+}

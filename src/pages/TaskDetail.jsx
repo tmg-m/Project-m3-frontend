@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import apiService from "../services/api.service";
+// import hotIcon from '../css/icons/hot.png'
 
 function TaskDetail() {
   const { id } = useParams();
@@ -13,7 +14,7 @@ function TaskDetail() {
   const [loggedUserId, setLoggedUserId] = useState(null);
 
   // gets selected task with userId from payload (logged in user)
-  useEffect( () => {  
+  useEffect(() => {
     const data = async () => {
       try {
         const task = await apiService.getSingleTask(id);
@@ -22,12 +23,12 @@ function TaskDetail() {
       } catch (error) {
         console.log(error);
       }
-    } 
+    }
     data();
   }, []);
 
   useEffect(() => {
-    if(loggedUserId){
+    if (loggedUserId) {
       if (task.assist.includes(loggedUserId)) {
         setJoinToggle(true)
       }
@@ -52,10 +53,10 @@ function TaskDetail() {
   const handleJoin = async () => {
     try {
       await apiService.assistJoin(id);
-      const allChat= await apiService.getAllChat();
+      const allChat = await apiService.getAllChat();
       let chatRoomId;
       allChat.data.map((room) => {
-        if (room.relatedTask === id){
+        if (room.relatedTask === id) {
           chatRoomId = room._id
         }
       })
@@ -85,25 +86,28 @@ function TaskDetail() {
     }
   }
 
+  console.log(task)
+
 
   return (
     <>
-      <h1>Title: {task.title}</h1>
-      <h2>Detail: {task.discription}</h2>
-      <Link to={`/user/${creator._id}`}>
-        <h2>Creator: {creator.name}</h2>
-      </Link>
-      <h2>Help desk: {task.assist}</h2>
-      <h2>hot: {task.hot ? <p>true</p> : <p>false</p>}</h2>
-      <img src={task.imgUrl}></img>
+      <div className="taskDetail-container">
+        <div className="detail-controller">
+          <p className="title-discription">{task.title}</p>
+          {/* {task.hot ? <img className="detail-priority" src={hotIcon}></img> : null} */}
+          <img src={task.imgUrl}></img>
+          <p>{task.discription}</p>
+          <Link to={`/user/${creator._id}`}>
+            <h2>Creator: {creator.name}</h2>
+          </Link>
+          
+          <p>Help desk: {task.assist}</p>
 
-      {editVisible ? <Link to={`/task/${id}/edit`}>edit</Link> : <div>{joinToggle ? <button onClick={handleUnJoin}>un join</button> : <button onClick={handleJoin}>join</button>}</div>}
-
-      <br></br>
-      <br></br>
-      
-
-
+          <div className="toggleJoinxEdit">
+            {editVisible ? <button style={{ backgroundColor: "black" }} className="toggleBtn" ><Link className="edit-link " to={`/task/${id}/edit`}>Edit</Link></button> : <>{joinToggle ? <button style={{ backgroundColor: "rgb(254, 84, 84)" }} className="toggleBtn" onClick={handleUnJoin}>Leave</button> : <button className="toggleBtn" style={{ backgroundColor: "rgb(51, 155, 65)" }}  onClick={handleJoin}>Join</button>}</>}
+          </div>
+        </div>
+      </div>
     </>
   )
 }

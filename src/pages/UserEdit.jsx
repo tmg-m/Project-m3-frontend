@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import apiService from "../services/api.service";
+import '../css/edit.css'
 
 function UserEdit() {
   const { logOutUser } = useContext(AuthContext)
   const navigate = useNavigate()
-  const {id} = useParams(); 
+  const { id } = useParams();
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -59,38 +60,50 @@ function UserEdit() {
   }
 
   const deleteAccount = async () => {
-   try {
-     await apiService.deleteUser(id);
-     logOutUser();
-     navigate(`/`);
-   } catch (error) {
-     console.log(error);
-   }
+    try {
+      await apiService.deleteUser(id);
+      logOutUser();
+      navigate(`/`);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   console.log(form);
 
   return (
     <>
-      <form onSubmit={editMyProfile}>
-        <label>Profile pic</label>
-        <input type="file" name="imgUrl" onChange={handleImgaeUpload} />
-        <br></br>
-        <label>Email</label>
-        <input type="text" name="email" value={form.email} onChange={handleForm} />
-        <br></br>
-        <label>Name</label>
-        <input type="text" name="name" value={form.name} onChange={handleForm} />
-        <br></br>
-        <label>Password</label>
-        <input type="password" name="password" value={form.password} onChange={handleForm} />
-        <br></br>
-        <label>About</label>
-        <input type="text" name="about" value={form.about} onChange={handleForm} />
-        <br></br>
-        <button type="submit">save</button>
-      </form>
-      <button onClick={deleteAccount} >Delete Account</button>
+      <div className="detail-container">
+        <form className="form-controller" onSubmit={editMyProfile}>
+          <div className="upload-img">
+            <label>Profile pic</label>
+            <input type="file" name="imgUrl" onChange={handleImgaeUpload} />
+          </div>
+
+          <div className="fomt-input">
+            <label>Email</label>
+            <input type="text" name="email" value={form.email} onChange={handleForm} />
+          </div>
+
+          <div className="fomt-input">
+            <label>Name</label>
+            <input type="text" name="name" value={form.name} onChange={handleForm} />
+          </div>
+
+          <div className="fomt-input">
+            <label>Password</label>
+            <input type="password" name="password" value={form.password} onChange={handleForm} />
+          </div>
+
+          <div className="fomt-input">
+            <label>About</label>
+            <textarea type="text" name="about" value={form.about} onChange={handleForm} />
+          </div>
+
+          <button type="submit">save</button>
+        </form>
+        <button onClick={deleteAccount} >Delete Account</button>
+      </div>
     </>
   )
 }

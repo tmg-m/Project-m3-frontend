@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apiService from "../services/api.service";
+import '../css/task.css';
 
 function TaskCreate() {
   const navigate = useNavigate()
@@ -58,19 +59,27 @@ function TaskCreate() {
   }
 
   return (
-    <>
+    <div className="create-container">
       <form className="create-form" onSubmit={handleSubmit} >
-        <label>Title</label>
-        <input type="text" name="title" onChange={handleForm} />
-        <label>Discription</label>
-        <input type="text" name="discription" onChange={handleForm} />
-        <label>Hot</label>
-        <input type="checkbox" name="hot" onChange={handleFormCheck} />
-        <label>Image</label>
-        <input type="file" name="imgUrl" onChange={handleImgaeUpload} />
-        <button className="create-btn" type="submit">Create</button>
+        <div className="input-manager">
+          <label >Title</label>
+          <input type="text" name="title" onChange={handleForm} />
+        </div>
+        <div className="input-manager">
+          <label>Discription</label>
+          <textarea type="text" name="discription" onChange={handleForm} />
+        </div>
+        <div className="high-priority flex-column flex-center color-white">
+          <label>High priority</label>
+          <input type="checkbox" name="hot" onChange={handleFormCheck} />
+        </div>
+        <div className="upload" >
+          <label>Upload Image</label>
+          <input type="file" name="imgUrl" onChange={handleImgaeUpload} />
+        </div>
+        <button className="create-btn-form" type="submit">Create Task</button>
       </form>
-    </>
+    </div>
   )
 }
 
