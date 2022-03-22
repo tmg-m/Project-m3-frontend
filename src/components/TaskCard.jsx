@@ -14,8 +14,6 @@ function TaskCard({ id, title, imgUrl, creator, hot, assist  }) { // props from 
     apiService.getUser(creator).then((response) => { setCreatorData(response.data.user) })
   }, []);
 
-  console.log(creator);
-
   return (
     <>
       <Link to={`/task/${id}`}>

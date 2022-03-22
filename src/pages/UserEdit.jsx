@@ -69,7 +69,6 @@ function UserEdit() {
     }
   }
 
-  console.log(form);
 
   return (
     <>

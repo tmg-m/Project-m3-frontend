@@ -86,7 +86,6 @@ function TaskDetail() {
     }
   }
 
-  console.log(task)
 
 
   return (

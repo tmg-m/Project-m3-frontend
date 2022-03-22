@@ -10,7 +10,6 @@ function MyTasks () {
     apiService.getMyTasks().then((response) => setAllMyTask(response.data.tasks))
   }, []);
 
-  console.log(allMyTask);
   return(
     <>
       <div className="myTask-container">

@@ -66,7 +66,6 @@ function TaskEdit() {
     navigate(`/task`)
   }
 
-  console.log(form);
 
 
   return (
