@@ -49,6 +49,14 @@ body {
   padding: 0;
 }
 
+.loading-img {
+  position: absolute; 
+  left: 0; 
+  right: 0;
+  margin: auto;
+  width: 300px;
+}
+
 .bgImg {
   position: absolute;
   height: 100%;
