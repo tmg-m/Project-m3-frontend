@@ -7,6 +7,7 @@ import { AuthContext } from '../context/auth.context';
 import TaskCardXs from '../components/TaskCardXs';
 import profileIcon from '../css/icons/userProfile.png'
 import '../css/profile.css'
+import UserIcon from '../components/userIcon';
 
 function UserProfile() {
   const { id } = useParams();
@@ -85,6 +86,7 @@ function UserProfile() {
   return (
     <>
       <div className='profile-container'>
+        <UserIcon />
         <img src={userInfo.imgUrl}></img>
 
         <div className='profile-controller'>

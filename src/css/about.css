@@ -1,0 +1,29 @@
+.about-container {
+  margin: 20px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-controller {
+  margin: 80px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-controller > h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.about-controller > p {
+  line-height: 30px;
+}
+
+.about-controller > p > span {
+  font-weight: bolder;
+  font-size: 1.1rem;
+}

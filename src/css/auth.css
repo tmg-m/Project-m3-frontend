@@ -1,6 +1,7 @@
+/* @media only screen and (max-width: 600px) {
+} */
 
-@media only screen and (max-width: 600px) {
-  .Page {
+.Page {
   position: relative;
   height: 100vh;
   width: 100%;
@@ -47,49 +48,45 @@
 }
 
 .auth-input-manager {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    font-size: 1.2rem;
-    margin: 10px 0;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
 
-  .auth-input-manager > input {
-    outline: none;
-    border-bottom: 3px solid rgb(255, 255, 255);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    text-align: center;
-    background-color: transparent;
-    color: rgb(255, 255, 255);
-    height: 30px;
-    font-size: 1.2rem;
-  }
+.auth-input-manager > input {
+  outline: none;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  height: 30px;
+  font-size: 1.2rem;
+}
 
-  .signUp {
-    margin-top: 10px;
-    font-size: 1rem;
-  }
+.signUp {
+  margin-top: 10px;
+  font-size: 1rem;
+}
 
-  /* SignUp page */
+/* SignUp page */
 
-  .signUp-page-contents{
+.signUp-page-contents {
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 60px;
   font-size: 1.2rem;
+}
 
-  }
-
-  .signUp-page-contents > h1 {
-    font-size: 1.3rem;
-  }
-
-
+.signUp-page-contents > h1 {
+  font-size: 1.3rem;
 }

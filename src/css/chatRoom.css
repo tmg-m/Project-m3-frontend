@@ -1,81 +1,82 @@
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
 
-  .room-container {
-    margin: 20px 20px 0px;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+} */
 
-  .roomController {
-    width: 100%;
-    padding-top: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
+.room-container {
+  margin: 20px 20px 0px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .roomController > h1 {
-    font-size: 1.5rem;
-  }
+.roomController {
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
-  .roomController > button {
-    margin-top: 10px;
-    padding: 5px 20px;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 25px;
-  }
+.roomController > h1 {
+  font-size: 1.5rem;
+}
 
-  .messages {
-    width: 100%;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+.roomController > button {
+  margin-top: 10px;
+  padding: 5px 20px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 25px;
+}
 
-  .eachChat {
-    padding: 10px 0;
-  }
+.messages {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-  .eachChat > h2 {
-    padding-left: 5px;
-  }
+.eachChat {
+  padding: 10px 0;
+}
 
-  .fromWho {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+.eachChat > h2 {
+  padding-left: 5px;
+}
 
-  .fromWho > img {
-    width: 30px;
-  }
+.fromWho {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-  /* send message */
-  .send-container {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
-    background-color: rgb(135, 135, 135);
-  }
+.fromWho > img {
+  width: 30px;
+}
 
-  .send-container > form > input {
-    width: 80%;
-    height: 40px;
-  }
+/* send message */
+.send-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(135, 135, 135);
+}
 
-  .sendBtn {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .sendBtn-icon {
-    width: 40px ;
-  }
+.send-container > form > input {
+  width: 80%;
+  height: 40px;
+}
+
+.sendBtn {
+  display: flex;
+  gap: 20px;
+}
+
+.sendBtn-icon {
+  width: 40px;
 }

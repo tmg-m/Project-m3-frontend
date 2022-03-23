@@ -1,78 +1,82 @@
-@media only screen and (max-width: 600px) {
-  .profile-container {
-    height: 100%;
-    width: 100%;
-    margin-top: 25px;
-    padding-top: 55px;
-  }
+/* @media only screen and (max-width: 600px) {
+} */
+.profile-container {
+  height: 100%;
+  width: 100%;
+  margin-top: 25px;
+  padding-top: 55px;
+}
 
-  .profile-controller {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px 20px;
-  }
+.profile-container > img {
+  display: block;
+  height: 300px;
+  margin: 0 auto;
+}
 
-  .detail-message-control {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
+.profile-controller {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 20px;
+}
 
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 20px;
-  }
+.detail-message-control {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 
-  .user {
-    display: flex;
-    align-items: center;
-    font-size: 1.4rem;
-    font-weight: bold;
-    gap: 10px;
-    justify-content: space-between;
-  }
+.user-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
 
-  .user-only {
-    display: flex;
-    align-items: center;
-    font-size: 1.4rem;
-    font-weight: bold;
-    gap: 10px;
-  }
-  .user > h1 {
-    padding-top: 8px;
-  }
-  .user-only > img {
-    height: 35px;
-  }
-  .user-detail {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
-  }
-  
-  .userBtns {
-    padding: 7px 25px;
-    border-radius: 25px;
-    border: 2px solid black;
-    color: black;
-    font-size: 1.1rem;
-  }
+.user {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  gap: 10px;
+  justify-content: space-between;
+}
 
-  .createBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 40px;
-    border-radius: 25px;
-    background-color: rgb(89, 89, 89);
-    color: white;
-  }
-  
+.user-only {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  gap: 10px;
+}
+.user > h1 {
+  padding-top: 8px;
+}
+.user-only > img {
+  height: 35px;
+}
+.user-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
 
+.userBtns {
+  padding: 7px 25px;
+  border-radius: 25px;
+  border: 2px solid black;
+  color: black;
+  font-size: 1.1rem;
+}
+
+.createBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  border-radius: 25px;
+  background-color: rgb(89, 89, 89);
+  color: white;
 }

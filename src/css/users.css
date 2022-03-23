@@ -1,66 +1,53 @@
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: rgb(233, 233, 233);
-    font-family: 'Rubik', sans-serif;
-    font-size: 16px;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+/* @media only screen and (max-width: 600px) {
+} */
 
-  /* User discover */
+/* User discover */
 
-  .allUser {
-    margin: 20px 20px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
+.allUser {
+  margin: 20px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
-  .allUser-div-controller {
-    margin-top: 60px;
-    width: 100%;
-  }
+.allUser-div-controller {
+  margin-top: 60px;
+  width: 100%;
+}
 
-  .allUser-div-controller > h1 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
+.allUser-div-controller > h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
 
-  .user-controller {
-    margin-bottom: 15px;
-    width: 100%;
-  }
+.user-controller {
+  margin-bottom: 15px;
+  width: 100%;
+}
 
-  .user-card {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+.user-card {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-  .user-card > h1 {
-    font-size: 1.2rem;
-  }
+.user-card > h1 {
+  font-size: 1.2rem;
+}
 
-  .round {
-    width: 90px;
-    height: 90px;
-    border: 7px solid rgb(91, 91, 91);
-    padding: 2px;
-    object-fit: cover;
-    border-radius: 50%;
-    background-image: url("../css/icons/defaultUser.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 70%;
-  }
-
-
-
-
-
+.round {
+  width: 90px;
+  height: 90px;
+  border: 7px solid rgb(91, 91, 91);
+  padding: 2px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-image: url('../css/icons/defaultUser.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
 }

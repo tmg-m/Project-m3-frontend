@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 import '../css/users.css'
+import UserIcon from '../components/userIcon';
 
 
 function AllUserPage() {
@@ -15,6 +16,7 @@ function AllUserPage() {
   return (
     <>
       <div className='allUser'>
+        <UserIcon />
         <div className='allUser-div-controller'>
           <h1>Discover Users</h1>
           {allUser.map((user) => {

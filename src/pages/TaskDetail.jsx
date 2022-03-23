@@ -37,7 +37,16 @@ function TaskDetail() {
 
   // gets creator's data
   useEffect(() => {
-    apiService.getUser(task.creator).then((response) => setCreator(response.data.user))
+    const getCreatorDb = async () => {
+      try {
+       const creator = await apiService.getUser(task.creator) 
+      setCreator(creator.data.user)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getCreatorDb()
+    
   }, [task]);
 
   // Visible edit button, checks weather logged user and creator is the same.
@@ -100,7 +109,7 @@ function TaskDetail() {
             <h2>Creator: {creator.name}</h2>
           </Link>
           
-          <p>Help desk: {task.assist}</p>
+          <p>Users joined: {task.assist ? <>{task.assist.length}</> : null} </p>
 
           <div className="toggleJoinxEdit">
             {editVisible ? <button style={{ backgroundColor: "black" }} className="toggleBtn" ><Link className="edit-link " to={`/task/${id}/edit`}>Edit</Link></button> : <>{joinToggle ? <button style={{ backgroundColor: "rgb(254, 84, 84)" }} className="toggleBtn" onClick={handleUnJoin}>Leave</button> : <button className="toggleBtn" style={{ backgroundColor: "rgb(51, 155, 65)" }}  onClick={handleJoin}>Join</button>}</>}

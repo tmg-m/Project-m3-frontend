@@ -5,6 +5,7 @@ import apiService from "../services/api.service";
 import '../css/chatRoom.css'
 import userIcon from '../css/icons/userProfile.png'
 import { AuthContext } from "../context/auth.context";
+import UserIcon from "../components/userIcon";
 
 
 function ChatRoom() {
@@ -68,6 +69,7 @@ function ChatRoom() {
   return (
     <>
       <div className="room-container">
+        <UserIcon />
         <div className="roomController">
           <h1>{chatData.title}</h1>
           <button onClick={handleLeave}>Leave chat</button>
@@ -77,7 +79,7 @@ function ChatRoom() {
             {chatMessages.map((message, i) => {
               return (
                 <>
-                  <div className="eachChat" key={i} style={{ border: "2px solid red", margin: "5px" }}>
+                  <div className="eachChat" key={i} style={{ border: "2px solid black", margin: "5px" }}>
                     <div className="fromWho">
                       <img src={userIcon}></img>
                       <h1>{message.name}</h1>

@@ -69,7 +69,6 @@ function UserEdit() {
     }
   }
 
-
   return (
     <>
       <div className="detail-container">

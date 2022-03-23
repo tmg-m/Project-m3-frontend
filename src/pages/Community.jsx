@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import apiService from "../services/api.service";
 import roomIcon from '../css/icons/room.png'
 import '../css/community.css'
+import UserIcon from "../components/userIcon";
 
 function Community() {
   const { isLoading, user } = useContext(AuthContext);
@@ -19,6 +20,7 @@ function Community() {
   return (
     <>
       <div className="community-page">
+        <UserIcon />
         <div className="community-controler">
           <h1>Community</h1>
           <div>

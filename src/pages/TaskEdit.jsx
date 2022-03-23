@@ -13,13 +13,23 @@ function TaskEdit() {
     imgUrl: '',
   });
 
+  const taskDb = async () => {
+    try {
+      const taskData = await apiService.getSingleTask(id)
+      setForm({
+        title: taskData.data.task.title,
+        discription: taskData.data.task.discription,
+        hot: taskData.data.task.hot,
+        imgUrl: taskData.data.task.imgUrl,
+      })
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
-    apiService.getSingleTask(id).then((response) => setForm({
-      title: response.data.title,
-      discription: response.data.discription,
-      hot: response.data.hot,
-      imgUrl: response.data.imgUrl,
-    }))
+    taskDb()
   }, []);
 
   const handleForm = (e) => {
@@ -57,16 +67,18 @@ function TaskEdit() {
   };
 
   const editMyTask = async () => {
-    apiService.editTask(id, form)
-    navigate(`/task/${id}`)
+    try {
+      apiService.editTask(id, form)
+      navigate(`/task/${id}`)
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const deleteTask = async () => {
     apiService.deleteTask(id)
-    navigate(`/task`)
+    navigate(`/`)
   }
-
-
 
   return (
     <>

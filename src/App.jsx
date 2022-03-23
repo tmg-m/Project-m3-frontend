@@ -18,32 +18,35 @@ import ChatInbox from './pages/ChatInbox';
 /* import MyTasks from './pages/MyTasks'; */
 import './css/reset.css'
 import './css/base.css';
+import About from './pages/About';
 
 function App() {
   return (
-    <AuthProviderWrapper>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<IsPrivate><Home /></IsPrivate>}/>
-        <Route path="/task/:id" element={<IsPrivate><TaskDetail /></IsPrivate>} />
-        <Route path="/task/:id/edit" element={<IsPrivate><TaskEdit /></IsPrivate>} />
-        <Route path="/task/create" element={<IsPrivate><TaskCreate /></IsPrivate>} />
-        {/* <Route path="/task/mine" element={<IsPrivate><MyTasks /></IsPrivate>} /> */}
-        
+    <div className='App-container'>
+      <AuthProviderWrapper>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<IsPrivate><Home /></IsPrivate>} />
+          <Route path="/task/:id" element={<IsPrivate><TaskDetail /></IsPrivate>} />
+          <Route path="/task/:id/edit" element={<IsPrivate><TaskEdit /></IsPrivate>} />
+          <Route path="/task/create" element={<IsPrivate><TaskCreate /></IsPrivate>} />
+          {/* <Route path="/task/mine" element={<IsPrivate><MyTasks /></IsPrivate>} /> */}
 
-        <Route path="/user" element={<IsPrivate><AllUser /></IsPrivate>} />
-        <Route path="/user/:id" element={<IsPrivate><UserProfile /></IsPrivate>} />
-        <Route path="/user/:id/edit" element={<IsPrivate><UserEdit /></IsPrivate>} />
+          <Route path="/user" element={<IsPrivate><AllUser /></IsPrivate>} />
+          <Route path="/user/:id" element={<IsPrivate><UserProfile /></IsPrivate>} />
+          <Route path="/user/:id/edit" element={<IsPrivate><UserEdit /></IsPrivate>} />
+          <Route path="/about" element={<IsPrivate><About /></IsPrivate>} />
 
-        <Route path="/community" element={<IsPrivate><Community /></IsPrivate>} />
-        <Route path="/chatInbox" element={<IsPrivate><ChatInbox /></IsPrivate>} />
-        <Route path="/chat/:id" element={<IsPrivate><ChatRoom /></IsPrivate>} />
+          <Route path="/community" element={<IsPrivate><Community /></IsPrivate>} />
+          <Route path="/chatInbox" element={<IsPrivate><ChatInbox /></IsPrivate>} />
+          <Route path="/chat/:id" element={<IsPrivate><ChatRoom /></IsPrivate>} />
 
-        <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>}/>
-        <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>}/>
-        <Route path="*" element={<div>404 Not Found</div>} />
-      </Routes>
-    </AuthProviderWrapper>
+          <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>} />
+          <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>} />
+          <Route path="*" element={<div>404 Not Found</div>} />
+        </Routes>
+      </AuthProviderWrapper>
+    </div>
   );
 }
 
