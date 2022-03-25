@@ -40,12 +40,14 @@ button {
 
 body {
   background-color: rgb(255, 255, 255);
+  background-image: url("../css/icons/triangle-bg.jpeg");
+  background-repeat: repeat;
   font-family: 'Rubik', sans-serif;
   font-size: 16px;
   box-sizing: border-box;
   position: relative;
   max-width: 600px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -62,7 +64,7 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  filter: blur(2px) brightness(60%) contrast(1);
+  filter: blur(1px) brightness(60%) contrast(1);
 }
 
 /* Nav bar */
